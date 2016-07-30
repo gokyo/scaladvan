@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Assignment Details | Principles of Reactive Programming</title>
+<link rel="stylesheet" href="example_files/spark.css">
+<link rel="stylesheet" href="example_files/course.css">
+<link rel="icon" href="https://spark-public.s3.amazonaws.com/reactive/static/images/favicon.ico">
+<style type="text/css"> .coursera-reporter-link { display:inline-block;} </style><script src="example_files/MathJax.js" type="text/javascript"></script><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style></head>
+
+<body><div style="display: none;" id="MathJax_Message"></div>
+    <a href="#course-page-content" class="hidden">Skip Navigation</a>
+    <div class="hidden">
+        This page features MathJax technology to render mathematical formulae.
+        If you are using a screen reader, please visit <a href="http://www.dessci.com/en/products/mathplayer/">MathPlayer</a> to download the plugin for your browser. Please note that this is an Internet Explorer-only plugin at this time.
+    </div>
+
+    <h1 class="hidden">Principles of Reactive Programming</h1>
+
+    <script src="example_files/204.js" async="" type="text/javascript"></script><script src="example_files/ga.js" async="" type="text/javascript"></script><script>window.onerror = function(message, url, lineNum) {
+
+  // First check the URL and line number of the error
+  url = url || window.location.href;
+  // 99% of the time, errors without line numbers arent due to our code,
+  // they are due to third party plugins and browser extensions
+  if (lineNum === undefined || lineNum == null) return;
+  
+  // Now figure out the actual error message
+  // If it's an event, as triggered in several browsers
+  if (message.target && message.type) {
+    message = message.type;
+  }
+  if (!message.indexOf) {
+    message = 'Non-string, non-event error: ' + (typeof message);
+  }
+  
+  var errorDescrip = {
+    message: message,
+    script: url,
+    line: lineNum,
+    url: document.URL
+  }
+  
+  var err = {
+    key: 'page.error.javascript', 
+    value: errorDescrip
+  }
+  
+  window._204 = window._204 || [];
+  window._204.push(err);
+  
+  window._gaq = window._gaq || [];
+  window._gaq.push(err);
+}</script>
+
+<div class="course-topbar container-fluid" role="banner">
+
+    <div class="row-fluid">
+
+        <div class="span3">
+          <a href="https://www.coursera.org/" class="course-topbar-logo" data-if-linkable="add-referrer"></a>
+        </div>
+
+        <div class="course-topbar-nav-container span9" style="float:right;">
+            <h2 class="hidden">Top Navigation Bar</h2>
+
+            <ul class="course-topbar-nav-list">
+                <li class="course-topbar-nav-list-item">
+                  <a href="https://www.coursera.org/courses" data-if-linkable="add-referrer">Courses</a>
+                </li>
+
+                
+                <li class="course-topbar-nav-list-item" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-owns="course-topbar-my" data-popup="#course-topbar-my" data-popup-bind-open="mouseenter" data-popup-close="" style="cursor:pointer;" data-popup-direction="se">
+                                        <a data-user-id="4658484">
+                        Stefano Sgorlon                        <i class="icon-caret-down"></i>
+                    </a>
+                </li>
+
+                            </ul>
+        </div>
+    </div>
+
+    <div id="course-topbar-aboutus" class="course-topbar-sublist">
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/jobs" target="_new" data-if-linkable="add-referrer">Jobs</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/team" target="_new" data-if-linkable="add-referrer">Team</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/contact" target="_new" data-if-linkable="add-referrer">Contact Us</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/" target="_new" data-if-linkable="add-referrer">About Us</a>
+    </div>
+
+    <div id="course-topbar-my" class="course-topbar-sublist">
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/" target="_new">My Courses</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/account/profile" target="_new">Profile</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/account/records" target="_new">Course Records</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/account/settings" target="_new">Settings</a>
+                <a class="course-topbar-sublist-item" href="https://class.coursera.org/reactive-001/class/preferences">Course Preferences</a>
+        <a class="course-topbar-sublist-item" href="https://class.coursera.org/reactive-001/auth/logout">Sign Out</a>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="course-topbanner-wrapper">
+  <div class="course-topbanner">
+    <div class="course-topbanner-university-logo">
+      <a href="https://www.coursera.org/epfl" class="coursera-university-color" target="_blank" data-if-linkable="add-referrer" title="https://www.coursera.org/epfl">
+        <img src="example_files/university_logo.png" alt="epfl">
+      </a>
+    </div>
+
+    
+    <h1 class="course-topbanner-header">
+      <a class="course-topbanner-name coursera-university-color" href="https://class.coursera.org/reactive-001/class/index" data-if-linkable="modal-lock">
+        Principles of Reactive Programming      </a>
+      <br>
+      <span class="course-topbanner-instructor" style="">
+        by Erik Meijer, Martin Odersky, Roland Kuhn      </span>
+    </h1>
+
+  </div>
+</div>
+
+        <div class="container-fluid" style="position:relative;">
+        <div class="row-fluid">
+            <div id="course-page-sidebar" role="navigation">
+                <div class="course-navbar-container">
+	<a href="https://class.coursera.org/reactive-001/class/index" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_index">
+		<img src="example_files/logo.jpeg" style="width: 205px;height: 116px;margin: -15px 0px 8px 1px; box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);" alt="Course Home Page">
+	</a>
+
+	<div data-coursera-course-search-nav-widget="" class="input-append course-search-nav-box">
+		<form class="form-inline minimized-search" method="get" action="https://class.coursera.org/reactive-001/class/search" data-js-search-form="">
+			<label for="course-search-nav-input" class="accessible-text-for-reader">Search this course</label>
+			<input id="course-search-nav-input" name="q" data-js-search-input="" type="text">&nbsp;
+			<button class="btn icon-search" type="submit" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="search">
+				<span class="accessible-text-for-reader">Search</span>
+			</button>
+		</form>
+	</div>
+
+<h2 class="hidden">Side Navigation Bar</h2>
+<ul class="course-navbar-list">
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/class/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Home">
+				
+				Home							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/lecture/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Video_Lectures">
+				
+				Video Lectures							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=LearningResources" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Learning_Resources">
+				
+				Learning Resources							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item active">
+								<a href="https://class.coursera.org/reactive-001/assignment/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Assignments">
+				
+				Assignments							<span class="course-navbar-selected-marker">(selected)</span></a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=Assignment_2_FAQ" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Assignment_2_FAQ_(Simulations)">
+				
+				Assignment 2 FAQ (Simulations)							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=assignment_3_faq" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Assignment_3_FAQ_(NodeScala)">
+				
+				Assignment 3 FAQ (NodeScala)							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/forum/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Discussion_Forums">
+				
+				Discussion Forums							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ToolsSetup" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Tools_Setup">
+				
+				Tools Setup							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=SbtTutorial" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Sbt_Tutorial">
+				
+				Sbt Tutorial							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=EclipseTutorial" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Eclipse_Tutorial">
+				
+				Eclipse Tutorial							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ScalaTutorial" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Scala_Tutorial">
+				
+				Scala Tutorial							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ScalaStyleGuide" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Scala_Style_Guide">
+				
+				Scala Style Guide							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=CheatSheet" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Scala_Cheat_Sheet">
+				
+				Scala Cheat Sheet							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ReactiveCheatSheet" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Reactive_Cheat_Sheet">
+				
+				Reactive Cheat Sheet							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=GradingPolicy" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Grading_Policy">
+				
+				Grading Policy							</a>
+						</li>
+	
+	
+		
+		<li class="course-navbar-item">
+		<a href="http://www.meetup.com/Coursera/" target="_blank" class="coursera-university-color">
+			Join a Meetup
+			<span class="icon-share"></span>
+		</a>
+	</li>
+	
+    </ul>
+
+<ul style="list-style-type:none;margin-left: 10px;">
+  <li><a href="http://help.coursera.org/" class="coursera-university-color" target="_blank" title="Open help articles in new window"><i class="icon-question-sign"></i> Help Articles</a></li>
+</ul>
+
+<ul style="list-style-type:none;margin-left: 10px;">
+		<li><a href="https://class.coursera.org/reactive-001/forum/list?forum_id=10000" class="coursera-university-color"><i class="icon-comments"></i> Course Materials Errors</a></li>
+	<li><a href="https://class.coursera.org/reactive-001/forum/list?forum_id=10001" class="coursera-university-color"><i class="icon-comments"></i> Technical Issues</a></li>
+
+</ul>
+
+</div>
+            </div>
+            <div id="course-page-content" role="main">
+                                <h2 class="course-page-header">
+  <span>Example Assignment: Instructions</span>
+
+  <a class="coursera-reporter-link" title="Click here if you're experiencing technical problems or found errors in the course materials." target="_blank" href="https://class.coursera.org/reactive-001/help/programming?url=https%3A%2F%2Fclass.coursera.org%2Freactive-001%2Fassignment%2Fview%3Fassignment_id%3D11">
+     Help
+  </a>
+</h2>
+
+<br>
+<p>When you're ready to submit your solution, go to the <a href="https://class.coursera.org/reactive-001/assignment/list">assignments list</a>.
+</p>
+
+<br>
+<p>
+</p><p>Attention: You are allowed to submit <b>a maximum of 5 times</b>!
+ for grade purposes. Once you have submitted your solution, you should 
+see your grade and a feedback about your code on the Coursera website 
+within 10 minutes. If you want to improve your grade, just submit an 
+improved solution. The best of all your first 5 submissions will count 
+as the final grade. You can still submit after the 5th time to get 
+feedbacks on your improved solutions, however, these are for research 
+purposes only, and will not be counted towards your final grade. (This 
+assignment does not count towards your grade anyways, but this is the 
+policy for all other assignments too.)</p>
+
+<style type="text/css">
+.bigwarn {
+  color: #D00000;
+  font-weight: bold;
+}
+</style>
+<h1 id="getting_started">Getting Started!</h1>
+
+<p>The goal of this assignment is to familiarize yourself with the 
+infrastructure and the tools required during this class. Even though the
+ grade in this assignment will be excluded from your final grade for the
+ course, it is important that you work through this assignment 
+carefully.</p>
+
+<p>The following screencast video will guide you through this assignment</p>
+<p><a target="_blank" href="https://class.coursera.org/reactive-001/lecture/29" class="btn">Tutorial: Working on the Programming Assignments</a></p>
+<h2 id="installing_required_tools">Installing Required Tools</h2>
+
+<p>Before anything else, <span class="bigwarn">it is most important that you make sure that all tools are correctly installed</span>. Take a very careful look at the <a href="https://class.coursera.org/reactive-001/wiki/view?page=ToolsSetup">Tools Setup</a> page and verify that all of the listed tools work on your machine.</p>
+
+<h1 id="the_assignment">The Assignment</h1>
+
+<h2 id="part_1_obtain_the_project_files">Part 1: Obtain the Project Files</h2>
+
+<p><a href="http://spark-public.s3.amazonaws.com/reactive/assignments/example.zip">Download the example.zip</a> handout archive file and extract it somewhere on your machine.</p>
+
+<h2 id="part_2_using_the_scala_repl">Part 2: Using the Scala REPL</h2>
+
+<p>During this class we will always launch the Scala REPL (the 
+interactive Scala console) through sbt. This way you don’t need to 
+install the Scala distribution on your machine, having sbt is enough. 
+(In case you prefer to have the <code>scala</code> command available on your machine, you can download the Scala distribution from the <a href="http://www.scala-lang.org/downloads">scala-lang.org website</a>.)</p>
+
+<p>Open the <a href="https://class.coursera.org/reactive-001/wiki/view?page=SbtTutorial">Sbt Tutorial</a>
+ page and follow the first steps until “Running the Scala Interpreter”. 
+Note that sbt can only be started inside a project directory, so first 
+navigate to the project directory that you created in Part 1.</p>
+
+<p>Enter a few Scala expressions to make sure everything is working as expected.</p>
+
+<h2 id="part_3_opening_the_project_in_eclipse">Part 3: Opening the Project in Eclipse</h2>
+
+<p>To work on the source code of the project, you have to import it into eclipse. Follow the description on the <a href="https://class.coursera.org/reactive-001/wiki/view?page=EclipseTutorial">Eclipse Tutorial</a> page and take a first look at the source code. In the folder <code>src/main/scala</code>, open the package <code>example</code> and double-click the file <code>Lists.scala</code>. There are two methods in this file that need to be implemented (<code>sum</code> and <code>max</code>).</p>
+
+<p>When working on an assignment, <span class="bigwarn">it is important that you don't change any existing method, class or object names or types</span>. Doing so will prevent our automated grading tools from working and you have a <span class="bigwarn">high risk of not obtaining any points</span> for your solution.</p>
+
+<h2 id="part_4_running_your_code">Part 4: Running your Code</h2>
+
+<p>Once you start writing some code, you might want to run your code on a
+ few examples to see if it works correctly. We present two possibilities
+ to run the methods you implemented.</p>
+
+<h3 id="using_the_scala_repl">Using the Scala REPL</h3>
+
+<p>In the sbt console, start the Scala REPL by typing <code>console</code>.</p>
+
+<pre><code>&gt; console
+[info] Starting scala interpreter...
+
+scala&gt;</code></pre>
+
+<p>The classes of the assignment are available inside the REPL, so you can for instance import all the methods from object <code>Lists</code>:</p>
+
+<pre><code>scala&gt; import example.Lists._
+import example.Lists._
+
+scala&gt; max(List(1,3,2))
+res1: Int = 3</code></pre>
+
+<h3 id="using_a_main_object">Using a Main Object</h3>
+
+<p>Another way to run your code is to create a new <code>Main</code> object that can be executed by the Java Virtual Machine.</p>
+
+<ol>
+<li>In eclipse, right-click on the package <code>example</code> in <code>src/main/scala</code> and select “New” - “Scala Object”</li>
+
+<li>Use <code>Main</code> as the object name (any other name would also work)</li>
+
+<li>Confirm by clicking “Finish”</li>
+</ol>
+
+<p>In order to make the object executable it has to extend the type <code>App</code>. Change the object definition to the following:</p>
+
+<pre><code>object Main extends App {
+  println(Lists.max(List(1,3,2)))
+}</code></pre>
+
+<p>Now the <code>Main</code> object can be executed. In order to do so in eclipse:</p>
+
+<ol>
+<li>Right-click on the file <code>Main.scala</code></li>
+
+<li>Select “Run As” - “Scala Application”</li>
+</ol>
+
+<p>You can also run the <code>Main</code> object in the sbt console by simply using the command <code>run</code>.</p>
+
+<h2 id="part_5_writing_tests">Part 5: Writing Tests</h2>
+
+<p>Throughout the assignments of this course we will require you to 
+write unit tests for the code that you write. Unit tests are the 
+preferred way to test your code because unlike REPL commands, unit tests
+ are saved and can be re-executed as often as required. This is a great 
+way to make sure that nothing breaks when you have go back later to 
+change some code that you wrote earlier on.</p>
+
+<p>We will be using the ScalaTest testing framework to write our unit tests. In eclipse, navigate to the folder <code>src/test/scala</code> and open the file <code>ListsSuite.scala</code> in package <code>example</code>. This file contains a step-by-step tutorial to learn how to write and execute ScalaTest unit tests.</p>
+
+<h2 id="part_6_submitting_your_solution">Part 6: Submitting your Solution</h2>
+
+<p>Once you implemented all the required methods and tested you code 
+thoroughly, you can submit it to Coursera. The only way to submit your 
+solution is through sbt, so you need to start the sbt console in your 
+project directory.</p>
+
+<p>In order to submit, you need to have your coursera username and your submission password. <span class="bigwarn">Note that the submission password is NOT your login password</span>, instead it is a special password generated by Coursera. You can look it up on the <a href="https://class.coursera.org/reactive-001/assignment/index">assignments page</a>.</p>
+
+<p>Submitting in sbt is simply done by invoking the <code>submit</code> task:</p>
+
+<pre><code>&gt; submit your.email@domain.com submissionPassword
+[info] Connecting to coursera. Obtaining challenge...
+[info] Computing challenge response...
+[info] Submitting solution...
+[success] Your code was successfully submitted: Your submission has been accepted and will be graded shortly.
+[success] Total time: 2 s, completed Aug 30, 2012 4:30:10 PM
+&gt; </code></pre>
+
+
+<p>You are allowed to <strong>resubmit a maximum of 5 times</strong>! 
+Once you submit your solution, you should see your grade and a feedback 
+about your code on the Coursera website within 10 minutes. If you want 
+to improve your grade, just submit an improved solution. The best of all
+ your submissions will count as the final grade.</p><p></p>
+
+            </div>
+        </div>
+    </div>
+        
+    
+    <script src="example_files/spark.js"></script>
+
+<script>window.onerror = function(message, url, lineNum) {
+
+  // First check the URL and line number of the error
+  url = url || window.location.href;
+  // 99% of the time, errors without line numbers arent due to our code,
+  // they are due to third party plugins and browser extensions
+  if (lineNum === undefined || lineNum == null) return;
+  
+  // Now figure out the actual error message
+  // If it's an event, as triggered in several browsers
+  if (message.target && message.type) {
+    message = message.type;
+  }
+  if (!message.indexOf) {
+    message = 'Non-string, non-event error: ' + (typeof message);
+  }
+  
+  var errorDescrip = {
+    message: message,
+    script: url,
+    line: lineNum,
+    url: document.URL
+  }
+  
+  var err = {
+    key: 'page.error.javascript', 
+    value: errorDescrip
+  }
+  
+  window._204 = window._204 || [];
+  window._204.push(err);
+  
+  window._gaq = window._gaq || [];
+  window._gaq.push(err);
+}</script>
+<script type="text/javascript">
+    // SET UP THE MULTITRACKER
+        window.logger = window.Log({level:"error"});
+        var parts = location.host.split(".");
+    while(parts.length > 2) { parts.shift(); }
+
+    window.multitracker = window.MultiTracker({logger:window.logger});
+    window.multitracker.register('204', window._204 = window._204 || []);
+    window.multitracker.register('ga', window._gaq = window._gaq || [], 'google');
+
+    // SET UP GA and 204
+    window._gaq.push(['_setAccount', 'UA-28377374-1']);
+    window._gaq.push(['_setDomainName', 'coursera.org']);
+    window._gaq.push(['_setAllowLinker', true]);  
+    window._gaq.push(['_trackPageview']);
+    
+    // configure 204 with the following settings
+    window._204.push(["client", "spark"]);
+    window._204.push(["user", 4658484]);
+    window._204.push(["domain", "." + parts.join(".")]);
+
+    // set off the first event
+    window._204.push({key:"pageview", val:{}});
+
+    // override our multitracker queues with the ga queue when it is ready
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    
+      ga.onload = ga.onreadystatechange = function() {
+          ga.onreadystatechange = ga.onload = null;
+          window.multitracker.get('ga').queue = window._gaq;
+      };
+    })();
+
+    // override our multitracker queues with the 204 queue when it is ready
+    (function() {
+      var a = document.createElement('script'); a.type = 'text/javascript'; a.async = true;
+      a.src = 'https://eventing.coursera.org/204.min.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(a, s);
+      a.onload = a.onreadystatechange = function() {
+          a.onreadystatechange = a.onload = null;
+          window.multitracker.get('204').queue = window._204;
+      };
+    })();
+</script>
+
+<script>
+  // Set up shared AB testing object
+  (function() {
+    window.ab = {};
+
+    // we want to share the 204 session cookie with the AB session cookie...
+    var sessionId = AB.makeSession("__204u", {expires:365, domain:"." + location.host});
+
+    window.ab.user = window.AB(4658484, "user", {debug:true, tracker:window.multitracker, logger:window.logger});
+    window.ab.session = window.AB(sessionId, "session", {debug:true, tracker:window.multitracker, logger:window.logger});
+
+    if(window.CourseraABExperiments.user) {
+        window.ab.user.addExperiments(window.CourseraABExperiments.user);
+        window.ab.user.runExperimentsOn("body");
+    }
+
+    if(window.CourseraABExperiments.session) {
+        window.ab.session.addExperiments(window.CourseraABExperiments.session);
+        window.ab.session.runExperimentsOn("body");
+    }
+  })();
+</script>
+
+
+    <script>
+      // Set up help widget
+      (function() {
+        $("[data-helpwidget]").each(function() {
+            window.HelpWidget(this, {tracker: window.multitracker});
+        });
+       })();
+
+        $("[data-readme]").each(function() {
+            window.ReadMe(this);
+        });
+    </script>
+
+    <script src="example_files/modal_focus.js" type="text/javascript"></script>
+    <script src="example_files/get_query_parameters.js" type="text/javascript"></script>
+    <script src="example_files/signature_track.js" type="text/javascript"></script>
+    <script src="example_files/signatureTrackLastChanceModal.js" type="text/javascript"></script>
+    <script src="example_files/signatureTrackLastChanceModal2.js" type="text/javascript"></script>
+    <script src="example_files/item_list.js" type="text/javascript"></script>
+    <script src="example_files/navbar.js" type="text/javascript"></script>
+
+    
+    <script>
+     // Set up help widget
+      (function() {
+        $("[data-helpwidget]").each(function() {
+            window.HelpWidget(this, {tracker: window.multitracker});
+        });
+       })();
+    </script>
+
+        <script>
+    (function() {
+        $("<style type='text/css'> .coursera-reporter-link { display:inline-block;} </style>").appendTo("head");
+    })();
+    </script>
+    
+    <script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  
+  styleSheets: [],
+  styles: {},
+
+  jax: ["input/TeX"],
+  
+  extensions: ["tex2jax.js"],
+
+  preJax: null,
+  postJax: null,
+
+  preRemoveClass: "MathJax_Preview",
+
+  showProcessingMessages: true,
+
+  messageStyle: "none",
+  
+  displayAlign: "center",
+  displayIndent: "0em",
+  
+  delayStartupUntil: "none",
+
+  skipStartupTypeset: false,
+  
+  elements: [],
+  
+  tex2jax: {
+	    inlineMath: [
+	                 ['$$','$$'],      // uncomment this for standard TeX math delimiters
+	                 ['\\(','\\)']
+	                 ],
+
+	                 displayMath: [
+	                 ['\\[','\\]']
+	                 ],
+
+    skipTags: ["script","noscript","style","textarea","pre","code"],
+    ignoreClass: "tex2jax_ignore",
+    processClass: "tex2jax_process",
+    processEscapes: false,
+    processEnvironments: true,
+    preview: "TeX"
+    
+  },
+  
+  mml2jax: {
+    preview: "alttext"
+    
+  },
+  
+  jsMath2jax: {
+    preview: "TeX"
+    
+  },
+
+  TeX: {
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    Macros: {},
+
+    extensions: ["AMSmath.js", "AMSsymbols.js"]
+    
+  },
+
+  //============================================================================
+  //
+  //  These parameters control the MathML inupt jax.
+  //
+  MathML: {
+    //
+    //  This specifies whether to use TeX spacing or MathML spacing when the
+    //  HTML-CSS output jax is used.
+    //
+    useMathMLspacing: false
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the HTML-CSS output jax.
+  //
+  "HTML-CSS": {
+    
+    scale: 100,
+    
+    availableFonts: ["STIX","TeX"],
+    
+    preferredFont: "TeX",
+    
+    webFont: "TeX",
+    
+    imageFont: "TeX",
+    
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif",
+      
+    showMathMenu: true,
+
+    styles: {},
+    
+    tooltip: {
+      delayPost: 600,          // milliseconds delay before tooltip is posted after mouseover
+      delayClear: 600,         // milliseconds delay before tooltip is cleared after mouseout
+      offsetX: 10, offsetY: 5  // pixels to offset tooltip from mouse position
+    }
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the NativeMML output jax.
+  //
+  NativeMML: {
+
+    scale: 100,
+
+    showMathMenu: true,
+    showMathMenuMSIE: true,
+
+    styles: {}
+  },
+  
+  MathMenu: {
+    delay: 400,
+    
+    helpURL: "http://www.mathjax.org/help/user/",
+
+    showRenderer: true,
+    showFontMenu: false,
+    showContext:  false,
+
+    windowSettings: {
+      status: "no", toolbar: "no", locationbar: "no", menubar: "no",
+      directories: "no", personalbar: "no", resizable: "yes", scrollbars: "yes",
+      width: 100, height: 50
+    },
+    
+    styles: {}
+    
+  },
+
+  MMLorHTML: {
+    prefer: {
+      MSIE:    "MML",
+      Firefox: "MML",
+      Opera:   "HTML",
+      other:   "HTML"
+    }
+  }
+});
+</script>
+<script type="text/javascript">
+(function () {
+
+  function loadMathJax() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://duqnjvq4jwr55.cloudfront.net/2.1/MathJax.js";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  }
+
+  window.loadOrRefreshMathJax = function(domId) {
+    if (window.MathJax) {
+      if (domId) {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, domId]);
+      } else {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+      }
+    } else {
+      loadMathJax();
+    }
+  }
+})();
+</script>
+    <script type="text/javascript">
+        var site_base_url = "https:\/\/www.coursera.org\/";
+        var site_static_asset_url = "https:\/\/dt5zaw6a98blc.cloudfront.net\/site-static\/";
+        var spark_class_short_name = "reactive";
+        var spark_class_id = 971465;
+        var spark_class_url = "\/reactive-001";
+        var spark_signature_url = "https:\/\/class.coursera.org\/reactive-001\/signature\/";
+
+        var course_strings_name = "Principles of Reactive Programming";
+        var student_full_name = "Stefano Sgorlon";
+    </script>
+
+    
+<script type="text/javascript">$(function() { loadOrRefreshMathJax();})</script>
+
+
+
+
+</body></html>

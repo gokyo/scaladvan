@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Assignment Details | Principles of Reactive Programming</title>
+<link rel="stylesheet" href="simulations_files/spark.css">
+<link rel="stylesheet" href="simulations_files/course.css">
+<link rel="icon" href="https://spark-public.s3.amazonaws.com/reactive/static/images/favicon.ico">
+<style type="text/css"> .coursera-reporter-link { display:inline-block;} </style><script src="simulations_files/MathJax.js" type="text/javascript"></script><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -5px 0 0 0; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style></head>
+
+<body><div style="display: none;" id="MathJax_Message"></div>
+    <a href="#course-page-content" class="hidden">Skip Navigation</a>
+    <div class="hidden">
+        This page features MathJax technology to render mathematical formulae.
+        If you are using a screen reader, please visit <a href="http://www.dessci.com/en/products/mathplayer/">MathPlayer</a> to download the plugin for your browser. Please note that this is an Internet Explorer-only plugin at this time.
+    </div>
+
+    <h1 class="hidden">Principles of Reactive Programming</h1>
+
+    <script src="simulations_files/204.js" async="" type="text/javascript"></script><script src="simulations_files/ga.js" async="" type="text/javascript"></script><script>window.onerror = function(message, url, lineNum) {
+
+  // First check the URL and line number of the error
+  url = url || window.location.href;
+  // 99% of the time, errors without line numbers arent due to our code,
+  // they are due to third party plugins and browser extensions
+  if (lineNum === undefined || lineNum == null) return;
+  
+  // Now figure out the actual error message
+  // If it's an event, as triggered in several browsers
+  if (message.target && message.type) {
+    message = message.type;
+  }
+  if (!message.indexOf) {
+    message = 'Non-string, non-event error: ' + (typeof message);
+  }
+  
+  var errorDescrip = {
+    message: message,
+    script: url,
+    line: lineNum,
+    url: document.URL
+  }
+  
+  var err = {
+    key: 'page.error.javascript', 
+    value: errorDescrip
+  }
+  
+  window._204 = window._204 || [];
+  window._204.push(err);
+  
+  window._gaq = window._gaq || [];
+  window._gaq.push(err);
+}</script>
+
+<div class="course-topbar container-fluid" role="banner">
+
+    <div class="row-fluid">
+
+        <div class="span3">
+          <a href="https://www.coursera.org/" class="course-topbar-logo" data-if-linkable="add-referrer"></a>
+        </div>
+
+        <div class="course-topbar-nav-container span9" style="float:right;">
+            <h2 class="hidden">Top Navigation Bar</h2>
+
+            <ul class="course-topbar-nav-list">
+                <li class="course-topbar-nav-list-item">
+                  <a href="https://www.coursera.org/courses" data-if-linkable="add-referrer">Courses</a>
+                </li>
+
+                
+                <li class="course-topbar-nav-list-item" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-owns="course-topbar-my" data-popup="#course-topbar-my" data-popup-bind-open="mouseenter" data-popup-close="" style="cursor:pointer;" data-popup-direction="se">
+                                        <a data-user-id="4658484">
+                        Stefano Sgorlon                        <i class="icon-caret-down"></i>
+                    </a>
+                </li>
+
+                            </ul>
+        </div>
+    </div>
+
+    <div id="course-topbar-aboutus" class="course-topbar-sublist">
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/jobs" target="_new" data-if-linkable="add-referrer">Jobs</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/team" target="_new" data-if-linkable="add-referrer">Team</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/contact" target="_new" data-if-linkable="add-referrer">Contact Us</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/" target="_new" data-if-linkable="add-referrer">About Us</a>
+    </div>
+
+    <div id="course-topbar-my" class="course-topbar-sublist">
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/" target="_new">My Courses</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/account/profile" target="_new">Profile</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/account/records" target="_new">Course Records</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/account/settings" target="_new">Settings</a>
+                <a class="course-topbar-sublist-item" href="https://class.coursera.org/reactive-001/class/preferences">Course Preferences</a>
+        <a class="course-topbar-sublist-item" href="https://class.coursera.org/reactive-001/auth/logout">Sign Out</a>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="course-topbanner-wrapper">
+  <div class="course-topbanner">
+    <div class="course-topbanner-university-logo">
+      <a href="https://www.coursera.org/epfl" class="coursera-university-color" target="_blank" data-if-linkable="add-referrer" title="https://www.coursera.org/epfl">
+        <img src="simulations_files/university_logo.png" alt="epfl">
+      </a>
+    </div>
+
+    
+    <h1 class="course-topbanner-header">
+      <a class="course-topbanner-name coursera-university-color" href="https://class.coursera.org/reactive-001/class/index" data-if-linkable="modal-lock">
+        Principles of Reactive Programming      </a>
+      <br>
+      <span class="course-topbanner-instructor" style="">
+        by Erik Meijer, Martin Odersky, Roland Kuhn      </span>
+    </h1>
+
+  </div>
+</div>
+
+        <div class="container-fluid" style="position:relative;">
+        <div class="row-fluid">
+            <div id="course-page-sidebar" role="navigation">
+                <div class="course-navbar-container">
+	<a href="https://class.coursera.org/reactive-001/class/index">
+	<img src="simulations_files/logo.jpeg" style="width: 205px;height: 116px;margin: -15px 0px 8px 1px; box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);" alt="Course Home Page">
+	</a>
+
+	<div data-coursera-course-search-nav-widget="" class="input-append course-search-nav-box">
+		<form class="form-inline minimized-search" method="get" action="https://class.coursera.org/reactive-001/class/search" data-js-search-form="">
+			<label for="course-search-nav-input" class="accessible-text-for-reader">Search this course</label>
+			<input id="course-search-nav-input" name="q" data-js-search-input="" type="text">&nbsp;
+			<button class="btn icon-search" type="submit">
+				<span class="accessible-text-for-reader">Search</span>
+			</button>
+		</form>
+	</div>
+
+<h2 class="hidden">Side Navigation Bar</h2>
+<ul class="course-navbar-list">
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/class/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Announcements							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/lecture/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Video Lectures							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=LearningResources" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Learning Resources							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item active">
+								<a href="https://class.coursera.org/reactive-001/assignment/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Assignments							<span class="course-navbar-selected-marker">(selected)</span></a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/forum/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Discussion Forums							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ToolsSetup" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Tools Setup							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=SbtTutorial" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Sbt Tutorial							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=EclipseTutorial" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Eclipse Tutorial							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ScalaTutorial" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Scala Tutorial							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ScalaStyleGuide" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Scala Style Guide							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=CheatSheet" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Scala Cheat Sheet							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ReactiveCheatSheet" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Reactive Cheat Sheet							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=GradingPolicy" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color">
+				
+				Grading Policy							</a>
+						</li>
+	
+	
+		
+		<li class="course-navbar-item">
+		<a href="http://www.meetup.com/Coursera/" target="_blank" class="coursera-university-color">
+			Join a Meetup
+			<span class="icon-share"></span>
+		</a>
+	</li>
+	
+    </ul>
+
+<ul style="list-style-type:none;margin-left: 10px;">
+  <li><a href="http://help.coursera.org/" class="coursera-university-color" target="_blank" title="Open help articles in new window"><i class="icon-question-sign"></i> Help Articles</a></li>
+</ul>
+
+<ul style="list-style-type:none;margin-left: 10px;">
+		<li><a href="https://class.coursera.org/reactive-001/forum/list?forum_id=10000" class="coursera-university-color"><i class="icon-comments"></i> Course Materials Errors</a></li>
+	<li><a href="https://class.coursera.org/reactive-001/forum/list?forum_id=10001" class="coursera-university-color"><i class="icon-comments"></i> Technical Issues</a></li>
+
+</ul>
+
+</div>
+            </div>
+            <div id="course-page-content" role="main">
+                                <h2 class="course-page-header">
+  <span>Simulations: Instructions</span>
+
+  <a class="coursera-reporter-link" title="Click here if you're experiencing technical problems or found errors in the course materials." target="_blank" href="https://class.coursera.org/reactive-001/help/programming?url=https%3A%2F%2Fclass.coursera.org%2Freactive-001%2Fassignment%2Fview%3Fassignment_id%3D7">
+     Help
+  </a>
+</h2>
+
+<br>
+<p>When you're ready to submit your solution, go to the <a href="https://class.coursera.org/reactive-001/assignment/list">assignments list</a>.
+</p>
+
+<br>
+<p>
+</p><p>Attention: You are allowed to submit <b>a maximum of 5 times</b>!
+ for grade purposes. Once you have submitted your solution, you should 
+see your grade and a feedback about your code on the Coursera website 
+within 20 minutes. If you want to improve your grade, just submit an 
+improved solution. The best of all your first 5 submissions will count 
+as the final grade. You can still submit after the 5th time to get 
+feedback on your improved solutions, however, these are for research 
+purposes only, and will not be counted towards your final grade.</p>
+
+<p><a href="http://spark-public.s3.amazonaws.com/reactive/assignments/simulations.zip">Download the simulations.zip</a> handout archive file and extract it somewhere on your machine.</p>
+
+<h2 id="circuit_simulation">Circuit Simulation</h2>
+
+<p>In this part, you will explore the simulator for logic circuits 
+started in lecture. This simulator is an example of a class of 
+simulators based on <em>discrete events</em>.</p>
+
+<p>The central data structure of the simulator is the <em>agenda</em>. The agenda memorizes <em>actions</em> to perform, sorted by their trigger time: actions to be performed first are in the beginning.</p>
+
+<p>The simulation runs by extracting the first action from the agenda, 
+advancing the time of simulation to the trigger time of this action, 
+triggering the action, and restarting the process until the agenda is 
+empty.</p>
+
+<p>The circuits simulated by our program are composed of <em>wires</em> and <em>components</em>. A wire transports a digital signal, which can be 0 (represented by <code>false</code>) or 1 (represented by <code>true</code>).
+ A component is connected to input and output wires, and the value of 
+output wires is a function of the values of input wires. The change of 
+values in the input wires does not produce an immediate change in the 
+values of the output wires: each component defines a <em>delay</em> that is specific to it.</p>
+
+<p>With each wire, we associate a set of functions, also called <em>actions</em>, which are activated each time the value transported by the wire changes.</p>
+
+<p>For this project, we use three basic components: an inverter, an <em>and</em> gate and an <em>or</em> gate. All the circuits will be composed of these basic pieces.</p>
+
+<h3 id="1_or_gates">1. Or Gates</h3>
+
+<p>Write the methods <code>orGate</code> and <code>orGate2</code> in the <code>CircuitSimulator</code> class of the <code>Circuit.scala</code> file:</p>
+
+<ol>
+<li>
+<p><code>orGate</code> should be implemented from scratch, following the pattern of the <code>andGate</code> method.</p>
+</li>
+
+<li>
+<p><code>orGate2</code> should be implemented solely in terms of <code>andGate</code> and <code>inverter</code>.</p>
+</li>
+</ol>
+
+<h3 id="2_demultiplexers">2. Demultiplexers</h3>
+
+<p>Write the method <code>demux</code> which realizes a demultiplexer with <em>n</em> control wires (and <em>2 to the power n</em>
+ output wires). The demultiplexer directs the signal from an input wire 
+based on the control signal. The rest of the output signals are set to 
+0. The <code>demux</code> method has the following signature:</p>
+
+<pre><code>def demux(in: Wire, c: List[Wire], out: List[Wire])</code></pre>
+
+<p>The list of control wires (<code>c</code>) and the the list of output wires (<code>out</code>) are assumed to be sorted by decreasing index: e.g. the head of the <code>c</code> list contains the control wire of index <code>n-1</code>.</p>
+
+<p>Your implementation should be recursive and based on the gates that 
+you implemented previously. As a hint, think of the base case: the 
+simplest demultiplexer has 0 control wires and 1 output wire. Refer to 
+the image below for some intuition on this last part.</p>
+
+<p><img alt="Demux" src="simulations_files/reactiveimagesdemux.png"></p>
+
+<h2 id="epidemy_simulation">Epidemy Simulation</h2>
+
+<p>In this part, you are going to write an epidemy simulator based on 
+the simulation framework seen in lecture and used in the circuit 
+simulation.</p>
+
+<p>The scenario is as follows: the world (“Scalia”) consists of regular 
+grid of 64 rooms (8x8) where each room is connected to four neighbouring
+ rooms. Each room may contain an arbitrary number of persons. Scaliosis –
+ a vicious killer virus – rages with a prevalence rate of 1% among the 
+peaceful population of Scalia. It spreads with a transmissibility rate 
+of 40%. By prevalence rate, we mean that a certain portion of the 
+population is infected to begin with. The transmissibility rate refers 
+to the probability of one person to be infected.</p>
+
+<p>In the beginning, 300 people are equally distributed among the rooms.
+ Each step of the simulation corresponds to one simulated day. The 
+disease and behaviour of people is simulated according to the following 
+rules.</p>
+
+<h3 id="rules">Rules</h3>
+
+<ol>
+<li>
+<p>After each move (and also after the beginning of the simulation), a 
+person moves to one of their neighbouring rooms (left, right, up, down) 
+within the next 5 days (with equally distributed probability). 
+Therefore, a person moves repeatedly until he is dead (discussed below),
+ and the waiting time between two moves varies from 1 to 5 days 
+(randomly decided by you each time). Note that the first row is 
+considered to be a neighbour of row eight (and vice versa); analogously,
+ the first column is a neighbour of column eight (and vice versa).</p>
+</li>
+
+<li>
+<p>A person avoids rooms with sick or dead (visibly infectious) people. 
+This means that if a person is surrounded by visibly infectious people, 
+he does not change position; however, he might change position the next 
+time he tries to move (for example, if a visibly infectious person moved
+ out of one of the neighbouring rooms or became immune).</p>
+</li>
+
+<li>
+<p>When a person moves into a room with an infectious person he might 
+get infected according to the transmissibility rate, unless the person 
+is already infected or immune. A person cannot get infected between 
+moves (this is slightly unrealistic, but will simplify your 
+implementation).</p>
+</li>
+
+<li>
+<p>When a person becomes infected, he does not immediately get sick, but
+ enters a phase of incubation in which he is infectious but not sick.</p>
+</li>
+
+<li>
+<p>After 6 days of becoming infected, a person becomes sick and is therefore visibly infectious.</p>
+</li>
+
+<li>
+<p>After 14 days of becoming infected, a person dies with a probability 
+of 25%. Dead people do not move, but stay visibly infectious.</p>
+</li>
+
+<li>
+<p>After 16 days of becoming infected, a person becomes immune. He is no
+ longer visibly infectious, but remains infectious. An immune person 
+cannot get infected.</p>
+</li>
+
+<li>
+<p>After 18 days of becoming infected, a person turns healthy. He is now
+ in the same state as he was before his infection, which means that he 
+can get infected again.</p>
+</li>
+</ol>
+
+<h3 id="graphical_display">Graphical display</h3>
+
+<p>To make the project more interesting, we provide you with a graphical display class (class <code>EpidemyDisplay</code>) that is used to visualize simulations. The display is automatically available to you when you complete the provided (partial) <code>EpidemySimulator</code> class. To start the graphical output (and the simulation), run the <code>simulations.gui.EpidemyDisplay</code> object.</p>
+
+<p>Healthy persons are painted in green color. Persons that have their 
+sick field set to true are painted in red color, suitable to indicate 
+visibly infected people. Immune (i.e. infected but not sick) people are 
+painted in yellow.</p>
+
+<h3 id="exercises">Exercises</h3>
+
+<ol>
+<li>
+<p>Implement an epidemy simulator according to the above rules by completing the partial <code>EpidemySimulator</code> class (available on the course web site). Make sure to first inspect the code of <code>EpidemyDisplay</code> and <code>Simulator</code>, and understand how the display uses the simulator’s agenda to perform the simulation. Your task is to add the correct <code>WorkItem</code>s to the agenda. How does the simulation over 5 experiment runs?</p>
+</li>
+
+<li>
+<p>Extend your simulation with air traffic : when a person decides to 
+move, she will choose to take the airplane with a probability of 1%, 
+thereby moving to a random room in the grid (rooms with visibly infected
+ people are not avoided). How does air traffic impact the epidemy?</p>
+</li>
+
+<li>
+<p><strong>Pandemic Response</strong>. To reduce the number of casualties, the president of Scalia decides to enforce one of the following health policies :</p>
+
+<ol>
+<li>
+<p><strong>Reduce Mobility Act</strong>. The mobility of people is decreased by half. The mobility of a visibly infected person is further reduced by half.</p>
+</li>
+
+<li>
+<p><strong>The Chosen Few Act</strong>. 5% of people (VIPs such as pop 
+singers, football players, etc.) are given vaccines when first created. 
+They never become infected.</p>
+</li>
+</ol>
+
+<p>Implement both of these policies. Which of these policies is more effective?</p>
+</li>
+</ol>
+
+<p><strong>Note</strong>: Use the <code>SimConfig</code> object to 
+declare your configuration values for the simulations. When you submit, 
+set them to the default values, and disable extensions (air traffic, 
+reduced mobility and vaccination).</p><p></p>
+
+            </div>
+        </div>
+    </div>
+        
+    
+    <script src="simulations_files/spark.js"></script>
+
+<script>window.onerror = function(message, url, lineNum) {
+
+  // First check the URL and line number of the error
+  url = url || window.location.href;
+  // 99% of the time, errors without line numbers arent due to our code,
+  // they are due to third party plugins and browser extensions
+  if (lineNum === undefined || lineNum == null) return;
+  
+  // Now figure out the actual error message
+  // If it's an event, as triggered in several browsers
+  if (message.target && message.type) {
+    message = message.type;
+  }
+  if (!message.indexOf) {
+    message = 'Non-string, non-event error: ' + (typeof message);
+  }
+  
+  var errorDescrip = {
+    message: message,
+    script: url,
+    line: lineNum,
+    url: document.URL
+  }
+  
+  var err = {
+    key: 'page.error.javascript', 
+    value: errorDescrip
+  }
+  
+  window._204 = window._204 || [];
+  window._204.push(err);
+  
+  window._gaq = window._gaq || [];
+  window._gaq.push(err);
+}</script>
+<script type="text/javascript">
+    // SET UP THE MULTITRACKER
+        window.logger = window.Log({level:"error"});
+        var parts = location.host.split(".");
+    while(parts.length > 2) { parts.shift(); }
+
+    window.multitracker = window.MultiTracker({logger:window.logger});
+    window.multitracker.register('204', window._204 = window._204 || []);
+    window.multitracker.register('ga', window._gaq = window._gaq || [], 'google');
+
+    // SET UP GA and 204
+    window._gaq.push(['_setAccount', 'UA-28377374-1']);
+    window._gaq.push(['_setDomainName', 'coursera.org']);
+    window._gaq.push(['_setAllowLinker', true]);  
+    window._gaq.push(['_trackPageview']);
+    
+    // configure 204 with the following settings
+    window._204.push(["client", "spark"]);
+    window._204.push(["user", 4658484]);
+    window._204.push(["domain", "." + parts.join(".")]);
+
+    // set off the first event
+    window._204.push({key:"pageview", val:{}});
+
+    // override our multitracker queues with the ga queue when it is ready
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    
+      ga.onload = ga.onreadystatechange = function() {
+          ga.onreadystatechange = ga.onload = null;
+          window.multitracker.get('ga').queue = window._gaq;
+      };
+    })();
+
+    // override our multitracker queues with the 204 queue when it is ready
+    (function() {
+      var a = document.createElement('script'); a.type = 'text/javascript'; a.async = true;
+      a.src = 'https://eventing.coursera.org/204.min.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(a, s);
+      a.onload = a.onreadystatechange = function() {
+          a.onreadystatechange = a.onload = null;
+          window.multitracker.get('204').queue = window._204;
+      };
+    })();
+</script>
+
+<script>
+  // Set up shared AB testing object
+  (function() {
+    window.ab = {};
+
+    // we want to share the 204 session cookie with the AB session cookie...
+    var sessionId = AB.makeSession("__204u", {expires:365, domain:"." + location.host});
+
+    window.ab.user = window.AB(4658484, "user", {debug:true, tracker:window.multitracker, logger:window.logger});
+    window.ab.session = window.AB(sessionId, "session", {debug:true, tracker:window.multitracker, logger:window.logger});
+
+    if(window.CourseraABExperiments.user) {
+        window.ab.user.addExperiments(window.CourseraABExperiments.user);
+        window.ab.user.runExperimentsOn("body");
+    }
+
+    if(window.CourseraABExperiments.session) {
+        window.ab.session.addExperiments(window.CourseraABExperiments.session);
+        window.ab.session.runExperimentsOn("body");
+    }
+  })();
+</script>
+
+
+    <script>
+      // Set up help widget
+      (function() {
+        $("[data-helpwidget]").each(function() {
+            window.HelpWidget(this, {tracker: window.multitracker});
+        });
+       })();
+
+        $("[data-readme]").each(function() {
+            window.ReadMe(this);
+        });
+    </script>
+
+    <script src="simulations_files/modal_focus.js" type="text/javascript"></script>
+    <script src="simulations_files/get_query_parameters.js" type="text/javascript"></script>
+    <script src="simulations_files/signature_track.js" type="text/javascript"></script>
+    <script src="simulations_files/signatureTrackLastChanceModal.js" type="text/javascript"></script>
+    <script src="simulations_files/item_list.js" type="text/javascript"></script>
+    <script src="simulations_files/navbar.js" type="text/javascript"></script>
+
+    
+    <script>
+     // Set up help widget
+      (function() {
+        $("[data-helpwidget]").each(function() {
+            window.HelpWidget(this, {tracker: window.multitracker});
+        });
+       })();
+    </script>
+
+        <script>
+    (function() {
+        $("<style type='text/css'> .coursera-reporter-link { display:inline-block;} </style>").appendTo("head");
+    })();
+    </script>
+    
+    <script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  
+  styleSheets: [],
+  styles: {},
+
+  jax: ["input/TeX"],
+  
+  extensions: ["tex2jax.js"],
+
+  preJax: null,
+  postJax: null,
+
+  preRemoveClass: "MathJax_Preview",
+
+  showProcessingMessages: true,
+
+  messageStyle: "none",
+  
+  displayAlign: "center",
+  displayIndent: "0em",
+  
+  delayStartupUntil: "none",
+
+  skipStartupTypeset: false,
+  
+  elements: [],
+  
+  tex2jax: {
+	    inlineMath: [
+	                 ['$$','$$'],      // uncomment this for standard TeX math delimiters
+	                 ['\\(','\\)']
+	                 ],
+
+	                 displayMath: [
+	                 ['\\[','\\]']
+	                 ],
+
+    skipTags: ["script","noscript","style","textarea","pre","code"],
+    ignoreClass: "tex2jax_ignore",
+    processClass: "tex2jax_process",
+    processEscapes: false,
+    processEnvironments: true,
+    preview: "TeX"
+    
+  },
+  
+  mml2jax: {
+    preview: "alttext"
+    
+  },
+  
+  jsMath2jax: {
+    preview: "TeX"
+    
+  },
+
+  TeX: {
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    Macros: {},
+
+    extensions: ["AMSmath.js", "AMSsymbols.js"]
+    
+  },
+
+  //============================================================================
+  //
+  //  These parameters control the MathML inupt jax.
+  //
+  MathML: {
+    //
+    //  This specifies whether to use TeX spacing or MathML spacing when the
+    //  HTML-CSS output jax is used.
+    //
+    useMathMLspacing: false
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the HTML-CSS output jax.
+  //
+  "HTML-CSS": {
+    
+    scale: 100,
+    
+    availableFonts: ["STIX","TeX"],
+    
+    preferredFont: "TeX",
+    
+    webFont: "TeX",
+    
+    imageFont: "TeX",
+    
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif",
+      
+    showMathMenu: true,
+
+    styles: {},
+    
+    tooltip: {
+      delayPost: 600,          // milliseconds delay before tooltip is posted after mouseover
+      delayClear: 600,         // milliseconds delay before tooltip is cleared after mouseout
+      offsetX: 10, offsetY: 5  // pixels to offset tooltip from mouse position
+    }
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the NativeMML output jax.
+  //
+  NativeMML: {
+
+    scale: 100,
+
+    showMathMenu: true,
+    showMathMenuMSIE: true,
+
+    styles: {}
+  },
+  
+  MathMenu: {
+    delay: 400,
+    
+    helpURL: "http://www.mathjax.org/help/user/",
+
+    showRenderer: true,
+    showFontMenu: false,
+    showContext:  false,
+
+    windowSettings: {
+      status: "no", toolbar: "no", locationbar: "no", menubar: "no",
+      directories: "no", personalbar: "no", resizable: "yes", scrollbars: "yes",
+      width: 100, height: 50
+    },
+    
+    styles: {}
+    
+  },
+
+  MMLorHTML: {
+    prefer: {
+      MSIE:    "MML",
+      Firefox: "MML",
+      Opera:   "HTML",
+      other:   "HTML"
+    }
+  }
+});
+</script>
+<script type="text/javascript">
+(function () {
+
+  function loadMathJax() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://duqnjvq4jwr55.cloudfront.net/2.1/MathJax.js";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  }
+
+  window.loadOrRefreshMathJax = function(domId) {
+    if (window.MathJax) {
+      if (domId) {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, domId]);
+      } else {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+      }
+    } else {
+      loadMathJax();
+    }
+  }
+})();
+</script>
+    <script type="text/javascript">
+        var site_base_url = "https:\/\/www.coursera.org\/";
+        var site_static_asset_url = "https:\/\/dt5zaw6a98blc.cloudfront.net\/site-static\/";
+        var spark_class_short_name = "reactive";
+        var spark_class_id = 971465;
+        var spark_class_url = "\/reactive-001";
+        var spark_signature_url = "https:\/\/class.coursera.org\/reactive-001\/signature\/";
+
+        var course_strings_name = "Principles of Reactive Programming";
+        var student_full_name = "Stefano Sgorlon";
+    </script>
+
+    
+<script type="text/javascript">$(function() { loadOrRefreshMathJax();})</script>
+
+
+
+
+</body></html>

@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Assignment Details | Principles of Reactive Programming</title>
+<link rel="stylesheet" href="nodescala_files/spark.css">
+<link rel="stylesheet" href="nodescala_files/course.css">
+<link rel="icon" href="https://spark-public.s3.amazonaws.com/reactive/static/images/favicon.ico">
+<style type="text/css"> .coursera-reporter-link { display:inline-block;} </style><script src="nodescala_files/MathJax.js" type="text/javascript"></script><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuTitle {background-color: #CCCCCC; margin: -1px -1px 1px -1px; text-align: center; font-style: italic; font-size: 80%; color: #444444; padding: 2px 0; overflow: hidden}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style></head>
+
+<body><div style="display: none;" id="MathJax_Message"></div>
+    <a href="#course-page-content" class="hidden">Skip Navigation</a>
+    <div class="hidden">
+        This page features MathJax technology to render mathematical formulae.
+        If you are using a screen reader, please visit <a href="http://www.dessci.com/en/products/mathplayer/">MathPlayer</a> to download the plugin for your browser. Please note that this is an Internet Explorer-only plugin at this time.
+    </div>
+
+    <h1 class="hidden">Principles of Reactive Programming</h1>
+
+    <script src="nodescala_files/204.js" async="" type="text/javascript"></script><script src="nodescala_files/ga.js" async="" type="text/javascript"></script><script>window.onerror = function(message, url, lineNum) {
+
+  // First check the URL and line number of the error
+  url = url || window.location.href;
+  // 99% of the time, errors without line numbers arent due to our code,
+  // they are due to third party plugins and browser extensions
+  if (lineNum === undefined || lineNum == null) return;
+  
+  // Now figure out the actual error message
+  // If it's an event, as triggered in several browsers
+  if (message.target && message.type) {
+    message = message.type;
+  }
+  if (!message.indexOf) {
+    message = 'Non-string, non-event error: ' + (typeof message);
+  }
+  
+  var errorDescrip = {
+    message: message,
+    script: url,
+    line: lineNum,
+    url: document.URL
+  }
+  
+  var err = {
+    key: 'page.error.javascript', 
+    value: errorDescrip
+  }
+  
+  window._204 = window._204 || [];
+  window._204.push(err);
+  
+  window._gaq = window._gaq || [];
+  window._gaq.push(err);
+}</script>
+
+<div class="course-topbar container-fluid" role="banner">
+
+    <div class="row-fluid">
+
+        <div class="span3">
+          <a href="https://www.coursera.org/" class="course-topbar-logo" data-if-linkable="add-referrer"></a>
+        </div>
+
+        <div class="course-topbar-nav-container span9" style="float:right;">
+            <h2 class="hidden">Top Navigation Bar</h2>
+
+            <ul class="course-topbar-nav-list">
+                <li class="course-topbar-nav-list-item">
+                  <a href="https://www.coursera.org/courses" data-if-linkable="add-referrer">Courses</a>
+                </li>
+
+                
+                <li class="course-topbar-nav-list-item" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-owns="course-topbar-my" data-popup="#course-topbar-my" data-popup-bind-open="mouseenter" data-popup-close="" style="cursor:pointer;" data-popup-direction="se">
+                                        <a data-user-id="4658484">
+                        Stefano Sgorlon                        <i class="icon-caret-down"></i>
+                    </a>
+                </li>
+
+                            </ul>
+        </div>
+    </div>
+
+    <div id="course-topbar-aboutus" class="course-topbar-sublist">
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/jobs" target="_new" data-if-linkable="add-referrer">Jobs</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/team" target="_new" data-if-linkable="add-referrer">Team</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/contact" target="_new" data-if-linkable="add-referrer">Contact Us</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/about/" target="_new" data-if-linkable="add-referrer">About Us</a>
+    </div>
+
+    <div id="course-topbar-my" class="course-topbar-sublist">
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/" target="_new">My Courses</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/account/profile" target="_new">Profile</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/account/records" target="_new">Course Records</a>
+        <a class="course-topbar-sublist-item" href="https://www.coursera.org/account/settings" target="_new">Settings</a>
+                <a class="course-topbar-sublist-item" href="https://class.coursera.org/reactive-001/class/preferences">Course Preferences</a>
+        <a class="course-topbar-sublist-item" href="https://class.coursera.org/reactive-001/auth/logout">Sign Out</a>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="course-topbanner-wrapper">
+  <div class="course-topbanner">
+    <div class="course-topbanner-university-logo">
+      <a href="https://www.coursera.org/epfl" class="coursera-university-color" target="_blank" data-if-linkable="add-referrer" title="https://www.coursera.org/epfl">
+        <img src="nodescala_files/university_logo.png" alt="epfl">
+      </a>
+    </div>
+
+    
+    <h1 class="course-topbanner-header">
+      <a class="course-topbanner-name coursera-university-color" href="https://class.coursera.org/reactive-001/class/index" data-if-linkable="modal-lock">
+        Principles of Reactive Programming      </a>
+      <br>
+      <span class="course-topbanner-instructor" style="">
+        by Erik Meijer, Martin Odersky, Roland Kuhn      </span>
+    </h1>
+
+  </div>
+</div>
+
+        <div class="container-fluid" style="position:relative;">
+        <div class="row-fluid">
+            <div id="course-page-sidebar" role="navigation">
+                <div class="course-navbar-container">
+	<a href="https://class.coursera.org/reactive-001/class/index" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_index">
+		<img src="nodescala_files/logo.jpg" style="width: 205px;height: 116px;margin: -15px 0px 8px 1px; box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);" alt="Course Home Page">
+	</a>
+
+	<div data-coursera-course-search-nav-widget="" class="input-append course-search-nav-box">
+		<form class="form-inline minimized-search" method="get" action="https://class.coursera.org/reactive-001/class/search" data-js-search-form="">
+			<label for="course-search-nav-input" class="accessible-text-for-reader">Search this course</label>
+			<input id="course-search-nav-input" name="q" data-js-search-input="" type="text">&nbsp;
+			<button class="btn icon-search" type="submit" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="search">
+				<span class="accessible-text-for-reader">Search</span>
+			</button>
+		</form>
+	</div>
+
+<h2 class="hidden">Side Navigation Bar</h2>
+<ul class="course-navbar-list">
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/class/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Home">
+				
+				Home							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/lecture/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Video_Lectures">
+				
+				Video Lectures							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=LearningResources" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Learning_Resources">
+				
+				Learning Resources							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item active">
+								<a href="https://class.coursera.org/reactive-001/assignment/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Assignments">
+				
+				Assignments							<span class="course-navbar-selected-marker">(selected)</span></a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=Assignment_2_FAQ" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Assignment_2_FAQ_(Simulations)">
+				
+				Assignment 2 FAQ (Simulations)							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=assignment_3_faq" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Assignment_3_FAQ_(NodeScala)">
+				
+				Assignment 3 FAQ (NodeScala)							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=Assignment_4_FAQ" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Assignment_4_FAQ_(WikiSuggestions)">
+				
+				Assignment 4 FAQ (WikiSuggestions)							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/forum/index" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Discussion_Forums">
+				
+				Discussion Forums							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ToolsSetup" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Tools_Setup">
+				
+				Tools Setup							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=SbtTutorial" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Sbt_Tutorial">
+				
+				Sbt Tutorial							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=EclipseTutorial" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Eclipse_Tutorial">
+				
+				Eclipse Tutorial							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ScalaTutorial" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Scala_Tutorial">
+				
+				Scala Tutorial							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ScalaStyleGuide" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Scala_Style_Guide">
+				
+				Scala Style Guide							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=CheatSheet" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Scala_Cheat_Sheet">
+				
+				Scala Cheat Sheet							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=ReactiveCheatSheet" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Reactive_Cheat_Sheet">
+				
+				Reactive Cheat Sheet							</a>
+						</li>
+	
+		
+	<li class="course-navbar-item">
+								<a href="https://class.coursera.org/reactive-001/wiki/view?page=GradingPolicy" data-if-linkable="modal-lock,gray,lock-icon" class="coursera-university-color" data-ab-user-convert-for="honorcode_to_welcome2" data-ab-user-convert="navclick_Grading_Policy">
+				
+				Grading Policy							</a>
+						</li>
+	
+	
+		
+		<li class="course-navbar-item">
+		<a href="http://www.meetup.com/Coursera/" target="_blank" class="coursera-university-color">
+			Join a Meetup
+			<span class="icon-share"></span>
+		</a>
+	</li>
+	
+    </ul>
+
+<ul style="list-style-type:none;margin-left: 10px;">
+  <li><a href="http://help.coursera.org/" class="coursera-university-color" target="_blank" title="Open help articles in new window"><i class="icon-question-sign"></i> Help Articles</a></li>
+</ul>
+
+<ul style="list-style-type:none;margin-left: 10px;">
+		<li><a href="https://class.coursera.org/reactive-001/forum/list?forum_id=10000" class="coursera-university-color"><i class="icon-comments"></i> Course Materials Errors</a></li>
+	<li><a href="https://class.coursera.org/reactive-001/forum/list?forum_id=10001" class="coursera-university-color"><i class="icon-comments"></i> Technical Issues</a></li>
+
+</ul>
+
+</div>
+            </div>
+            <div id="course-page-content" role="main">
+                                <h2 class="course-page-header">
+  <span>NodeScala: Instructions</span>
+
+  <a class="coursera-reporter-link" title="Click here if you're experiencing technical problems or found errors in the course materials." target="_blank" href="https://class.coursera.org/reactive-001/help/programming?url=https%3A%2F%2Fclass.coursera.org%2Freactive-001%2Fassignment%2Fview%3Fassignment_id%3D9">
+     Help
+  </a>
+</h2>
+
+<br>
+<p>When you're ready to submit your solution, go to the <a href="https://class.coursera.org/reactive-001/assignment/list">assignments list</a>.
+</p>
+
+<br>
+<p>
+</p><p>Attention: You are allowed to submit <b>an unlimited number of times</b>!
+ for grade purposes. Once you have submitted your solution, you should 
+see your grade and a feedback about your code on the Coursera website 
+within 20 minutes. If you want to improve your grade, just submit an 
+improved solution. </p>
+
+<!--
+The best of all your first 5 submissions will count as the final grade. You can still submit after the 5th time to get feedback on your improved solutions, however, these are for research purposes only, and will not be counted towards your final grade.
+
+https://d396qusza40orc.cloudfront.net/reactive%2Fimages%2Fschematicv.png
+-->
+
+
+<p>In this exercise you will implement a simple asynchronous server using Scala <code>Future</code>s. To get started, <a href="http://spark-public.s3.amazonaws.com/reactive/assignments/nodescala.zip">download the nodescala.zip</a> handout archive file and extract it somewhere on your machine.</p>
+
+<h1 id="part_1_extending_futures">Part 1: Extending Futures</h1>
+
+<p>In the first part of the exercise you will extend the Futures and 
+Promises API with some additional methods. We will define these methods 
+in the file <code>package.scala</code>.</p>
+
+<h2 id="extension_methods_on_s">Extension Methods on <code>Future</code>s</h2>
+
+<p>In Scala you can add missing methods to existing classes and singleton objects. Lets say you want to have a new <code>Future</code> factory method <code>userInput</code> in the <code>Future</code> companion object that expects user input and completes the future with the user input once the <code>ENTER</code> key was pressed. The <code>Future</code>
+ companion object is already baked into the standard library, so you 
+cannot add a method there directly. Here is an example how you can add <code>userInput</code> using extension methods:</p>
+
+<pre><code>implicit class FutureCompanionOps(f: Future.type) extends AnyVal {
+  def userInput(message: String): Future[String] = Future {
+    readLine(message)
+  }
+}</code></pre>
+
+<p>The <code>implicit</code> modifier on the <code>class</code> declaration above means that the compiler will generate an implicit conversion from the <code>Future</code> companion object to the <code>FutureCompanionOps</code> object. The declaration above is desugared into:</p>
+
+<pre><code>class FutureCompanionOps(f: Future.type) extends AnyVal {
+  def userInput(message: String): Future[String] = Future {
+    readLine(message)
+  }
+}
+implicit def f2ops(f: Future.type) = new FutureCompanionOps(f)</code></pre>
+
+<p>This implicit conversion will be called every time you call a non-existing method on the <code>Future</code> companion object – <code>Future.userInput</code> thus automatically becomes <code>f2ops(Future).userInput</code>. The <code>extends AnyVal</code> part is just an optimization telling the compiler to avoid instantiating the <code>FutureCompanionOps</code> object where possible and call its methods directly.</p>
+
+<p>The bottomline is that whenever you want to add missing methods to an
+ already existing class implementation, you should use this pattern.</p>
+
+<p>Lets see a simple example of how to implement an additional combinator on an instance of <code>Future[T]</code>. This combinator should take the current future <code>f</code> and the target future <code>that</code> and produce a new future that is completed with the value of the current future if and only if the <code>that</code> future is completed successfully. If <code>that</code> is not completed successfully, the resulting future should be completed with its exception. We will call this combinator <code>ensuring</code>. Here is how you could implement it:</p>
+
+<pre><code>implicit class FutureOps[T](f: Future[T]) {
+  def ensuring[S](that: Future[S]): Future[T] = {
+    val p = Promise[T]()
+
+    f onComplete {
+      case tryValue =&gt;
+        that onComplete {
+          case Success(_) =&gt;
+            p.complete(tryValue)
+          case Failure(exception) =&gt;
+            p.failure(exception)
+        }
+    }
+
+    p.future
+  }
+}</code></pre>
+
+<p>You start by creating a promise object <code>p</code>. The method <code>ensuring</code> will return a future corresponding to that promise. Then we install a callback to <code>f</code> using <code>onComplete</code> – when <code>f</code> completes with either success or a failure <code>tryValue</code> (either <code>Success</code> or <code>Failure</code>), it will install an additional callback to <code>that</code>. This additional callback will complete the promise <code>p</code> with either the exception if <code>that</code> fails, or with <code>tryValue</code> if <code>that</code> succeeds.</p>
+
+<p>Companion objects often contain factory methods for object creation. You will now add the following methods to the <code>Future</code> <strong>companion object</strong> – see the ScalaDoc comments in the source code for an explanation what each of these must do:</p>
+
+<pre><code>def always[T](value: T): Future[T] // hint - use a Promise to implement this!
+def never[T]: Future[T] // hint - use a Promise to implement this!
+def any[T](fs: List[Future[T]]): Future[T] // hint - use a Promise
+def all[T](fs: List[Future[T]]): Future[List[T]] // hint - see the lectures
+def delay(t: Duration): Future[Unit]</code></pre>
+
+<p>In the same way, add the following methods to <code>Future[T]</code> <strong>instances</strong> (again, see the ScalaDoc comments in the source code):</p>
+
+<pre><code>def now: T
+def continueWith[S](cont: Future[T] =&gt; S): Future[S]
+def continue[S](cont: Try[T] =&gt; S): Future[S]</code></pre>
+
+<p>We will use the factory methods and combinators defined above later in the exercise.</p>
+
+<p>Use whatever tool you see most appropriate for the job when implementing these factory methods – existing future combinators, <code>for</code>-comprehensions, <code>Promise</code>s or <code>async</code>/<code>await</code>. You may use <code>Await.ready</code> and <code>Await.result</code> only when defining the <code>delay</code> factory method and the <code>now</code> method on <code>Future</code>s. All the methods except <code>delay</code> should be non-blocking. The <code>delay</code>
+ may block the execution thread of its future until the specified time 
+period elapses, but it should not block the caller thread.</p>
+
+<p>Note that whenever you have a long-running computation or blocking make sure to run it inside the <code>blocking</code> construct. For example:</p>
+
+<pre><code>blocking {
+  Thread.sleep(1000)
+}</code></pre>
+
+<p>is used to designate a piece of code which potentially blocks, 
+allowing the thread scheduler to add additional threads and resolve 
+potential deadlocks. Example: lets say you have a future <code>f</code> that waits for a resource or a monitor condition that can only be fulfilled by some other future <code>g</code>. In that case, the part of the code in <code>f</code> that does the waiting should be wrapped in the <code>blocking</code>, otherwise the future <code>g</code> might never be run.</p>
+
+<h2 id="adding_cancellation">Adding Cancellation</h2>
+
+<p>Standard Scala <code>Future</code>s cannot be cancelled. Instead, 
+cancelling an asynchronous computation requires a collaborative effort, 
+in which the computation that is supposed to be cancelled periodically 
+checks a condition for cancellation.</p>
+
+<p>In this part of the exercise we will develop support for easier cancellation. We introduce the following traits:</p>
+
+<pre><code>trait CancellationToken {
+  def isCancelled: Boolean
+}</code></pre>
+
+<p>The <code>CancellationToken</code> is an object used by long running asynchronous computation to periodically check if they should cancel what they are doing. If <code>isCancelled</code> returns <code>true</code>, then an asynchronous computation should stop.</p>
+
+<pre><code>trait Subscription {
+  def unsubscribe(): Unit
+}</code></pre>
+
+<p><code>Subscription</code>s are used to unsubscribe from an event. Calling <code>unsubscribe</code> means that the <code>Subscription</code> owner is no longer interested in the asynchronous computation, and that it can stop.</p>
+
+<pre><code>trait CancellationTokenSource extends Subscription {
+  def cancellationToken: CancellationToken
+}</code></pre>
+
+<p>The <code>CancellationTokenSource</code> is a special kind of <code>Subscription</code> that returns a <code>cancellationToken</code> which is cancelled by calling <code>unsubscribe</code>. After calling <code>unsubscribe</code> once, the associated <code>cancellationToken</code> will forever remain cancelled.</p>
+
+<p>Here is how to implement the default <code>CancellationTokenSource</code>:</p>
+
+<pre><code>object CancellationTokenSource {
+  def apply(): CancellationTokenSource = new CancellationTokenSource {
+    val p = Promise[Unit]()
+    val cancellationToken = new CancellationToken {
+      def isCancelled = p.future.value != None
+    }
+    def unsubscribe() {
+      p.trySuccess(())
+    }
+  }
+}</code></pre>
+
+<p>In the above implementation, a <code>Promise</code> <code>p</code> is used to implement the <code>CancellationTokenSource</code>. This interface requires implementing 2 methods - <code>cancellationToken</code> and <code>unsubscribe</code>. The <code>unsubscribe</code> method is meant to be called by clients to let the computation know that it should stop. It tries to complete the promise <code>p</code> in case it wasn’t already completed. The <code>cancellationToken</code> method simply returns a <code>CancellationToken</code> that queries the state of the promise <code>p</code> in its <code>isCancelled</code> method. The computation can periodically query <code>isCancelled</code> to check if it should be cancelled.</p>
+
+<p>We use the above-defined method to implement a method <code>run</code> on the <code>Future</code> companion object that starts an asynchronous computation <code>f</code> taking a <code>CancellationToken</code> and returns a subscription that cancels that <code>CancellationToken</code>:</p>
+
+<pre><code>def run()(f: CancellationToken =&gt; Future[Unit]): Subscription = ???</code></pre>
+
+<p>Clients can use <code>Future.run</code> as follows:</p>
+
+<pre><code>val working = Future.run() { ct =&gt;
+  Future {
+    while (ct.nonCancelled) {
+      println("working")
+    }
+    println("done")
+  }
+}
+Future.delay(5 seconds) onSuccess {
+  case _ =&gt; working.unsubscribe()
+}</code></pre>
+
+<h1 id="part_2_an_asynchronous_http_server">Part 2: An Asynchronous HTTP Server</h1>
+
+<p>Finally, you have everything you need to write an asynchronous HTTP Server. The HTTP server will asynchronously wait on some <code>port</code>
+ for incoming HTTP requests and then respond to them by sending some 
+text or HTML back. You will be able to open your browser at the address <code>http://localhost:8191/someRelativepath</code> and see how your server responds to you!</p>
+
+<p>Open the file <code>nodescala.scala</code>. There you will find the following declarations:</p>
+
+<pre><code>type Request = Map[String, List[String]]
+type Response = Iterator[String]</code></pre>
+
+<p>Each HTTP request consists of a sequence of headers that are 
+key-value pairs. Same keys may occur in multiple headers in the same 
+HTTP requests, so we encode the request as a <code>Map</code> mapping a key to a <code>List</code> of all corresponding header values.</p>
+
+<p>Each HTTP response will be just some text. We could thus represent <code>Response</code> with a <code>String</code>. We will instead represent it with an <code>Iterator[String]</code> so that we can respond chunk by chunk if the entire text or an HTML document is very big.</p>
+
+<p>The trait <code>Exchange</code> is used to write your response back to the user using the <code>write</code> method. Whenever you use it, don’t forget to close it by calling the <code>close</code> method.</p>
+
+<p>Once you implement your server, you will be able to instantiate a server listening at a port <code>p</code> like this:</p>
+
+<pre><code>val myServer = new NodeScala.Default(p)</code></pre>
+
+<p>After that, you will be able to instruct the server to listen for requests at a specific relative path:</p>
+
+<pre><code>val homeSubscription = myServer.start("/home") {
+  req =&gt; "Have a nice day!".split(" ").iterator
+}</code></pre>
+
+<h2 id="http_listener">HTTP Listener</h2>
+
+<p>Every HTTP server creates multiple <code>Listener</code> objects, one for every relative path on which it listens for requests. These <code>Listener</code>s wait for incoming HTTP requests and can create <code>Future</code>s with the subsequent requests.
+However, the <code>Listener</code>, basing its implementation on standard HTTP support on the JVM,
+internally has a callback-based API.
+This is unfortunate, since such an API allows us to install callbacks using <code>createContext</code>
+and remove them using <code>removeContext</code>.
+We would instead like to represent incoming requests as <code>Future</code> objects,
+so we will use this callback based API to have callbacks complete a <code>Future</code> returned from the <code>Listener</code>.</p>
+
+<p>Open the <code>nodescala.scala</code> file. Your first task is to implement the <code>nextRequest</code> method in the <code>Listener</code> trait. This method will return a <code>Future</code> containing a pair of the <code>Request</code>, and an <code>Exchange</code> object used to write the response back to the HTTP client.</p>
+
+<p>In the <code>nextRequest</code> method, the <code>Listener</code> creates an empty <code>Promise</code> <code>p</code> to hold the <code>(Request, Exchange)</code> pair, installs a callback function using the <code>createContext</code> method that will complete the promise with the request and then remove itself using <code>removeContext</code>, and returns the <code>Future</code> of the <code>Promise</code> <code>p</code>. This pattern in which a callback completes a <code>Promise</code> to translate an event into a <code>Future</code> is ubiquitous in reactive programming with <code>Future</code>s.</p>
+
+<p>Implement the <code>nextRequest</code> method.</p>
+
+<p>Hint: make sure you understand how the <a href="http://docs.oracle.com/javase/7/docs/jre/api/net/httpserver/spec/com/sun/net/httpserver/HttpServer.html#createContext%28java.lang.String,%20com.sun.net.httpserver.HttpHandler%29"><code>createContext</code> and <code>removeContext</code></a> methods of the <code>HttpServer</code> class work.</p>
+
+<h2 id="the_http_server">The HTTP Server</h2>
+
+<p>In this part you will implement the two server methods <code>start</code> and <code>respond</code> of the trait <code>NodeScala</code> in the file <code>nodescala.scala</code>.</p>
+
+<p>The <code>respond</code> method is used to write the <code>response</code> back to the client using an <code>exchange</code> object. While doing so, this method must periodically check the <code>token</code> to see if the response should be interrupted early, otherwise our server might run forever!</p>
+
+<pre><code>private def respond(exchange: Exchange, token: CancellationToken, response: Response): Unit</code></pre>
+
+<p>Your first task is to implement the method <code>respond</code>.</p>
+
+<p>To start the HTTP server, we declare a single method <code>start</code> in file <code>nodescala.scala</code>:</p>
+
+<pre><code>def start(relativePath: String)(handler: Request =&gt; Response): Subscription</code></pre>
+
+<p>This method takes a <code>relativePath</code> at which a request arrives and a request handler. It creates a listener at <code>relativePath</code> and runs the following cancellable computation using <code>Future.run</code>: if the computation is not cancelled, awaits the <code>nextRequest</code> from the listener, responds to it asynchronously using <code>respond</code> and keeps repeating this until the computation is cancelled.</p>
+
+<p>Finally, method <code>start</code> returns a <code>Subscription</code> that cancels all asynchronous computations at this relative path.</p>
+
+<p>Your task is to implement <code>start</code> using <code>Future</code>s in the following way:</p>
+
+<ol>
+<li>create and start an http listener</li>
+
+<li>create a cancellation token to run an asynchronous computation (hint: use the <code>Future.run</code> companion method)</li>
+
+<li>in this asynchronous computation, while the token is not cancelled, 
+await the next request from the listener and then respond to it 
+asynchronously <img alt="schematic" src="nodescala_files/reactiveimagesschematicv.png"></li>
+
+<li>have the method <code>start</code> return a subscription that 
+cancels the http listener, the server loop and any responses that are in
+ progress (hint: use one of the <code>Subscription</code> companion methods)</li>
+</ol>
+
+<h2 id="instantiating_the_server">Instantiating the Server</h2>
+
+<p>Finally, you can instantiate the server in the file <code>Main.scala</code>:</p>
+
+<ol>
+<li>Create a server <code>myServer</code> on port <code>8191</code> and start listening on a relative path <code>/test</code> with a subscription <code>myServerSubscription</code></li>
+
+<li>Create a <code>userInterrupted</code> future that is completed when the user presses <code>ENTER</code>, continued with a message <code>"You entered... "</code> (use the <code>userInput</code> future)</li>
+
+<li>Create a <code>timeOut</code> future that is completed after 20 seconds, continued with a message <code>"Server timeout!"</code></li>
+
+<li>Create a <code>terminationRequested</code> future that is completed once any of the two futures above complete</li>
+
+<li>Once the <code>terminationRequested</code> completes, print its message, unsubscribe from <code>myServer</code> and print <code>"Bye!"</code></li>
+</ol>
+
+<p>Hint: where possible, use the previously defined <code>Future</code> factory methods and combinators.</p>
+
+<p>Open your browser and type <code>http://localhost:8191/test</code> into the address bar. Congratulations – your server is fully functional!</p>
+<p></p>
+
+            </div>
+        </div>
+    </div>
+        
+    
+    <script src="nodescala_files/spark.js"></script>
+
+<script>window.onerror = function(message, url, lineNum) {
+
+  // First check the URL and line number of the error
+  url = url || window.location.href;
+  // 99% of the time, errors without line numbers arent due to our code,
+  // they are due to third party plugins and browser extensions
+  if (lineNum === undefined || lineNum == null) return;
+  
+  // Now figure out the actual error message
+  // If it's an event, as triggered in several browsers
+  if (message.target && message.type) {
+    message = message.type;
+  }
+  if (!message.indexOf) {
+    message = 'Non-string, non-event error: ' + (typeof message);
+  }
+  
+  var errorDescrip = {
+    message: message,
+    script: url,
+    line: lineNum,
+    url: document.URL
+  }
+  
+  var err = {
+    key: 'page.error.javascript', 
+    value: errorDescrip
+  }
+  
+  window._204 = window._204 || [];
+  window._204.push(err);
+  
+  window._gaq = window._gaq || [];
+  window._gaq.push(err);
+}</script>
+<script type="text/javascript">
+    // SET UP THE MULTITRACKER
+        window.logger = window.Log({level:"error"});
+        var parts = location.host.split(".");
+    while(parts.length > 2) { parts.shift(); }
+
+    window.multitracker = window.MultiTracker({logger:window.logger});
+    window.multitracker.register('204', window._204 = window._204 || []);
+    window.multitracker.register('ga', window._gaq = window._gaq || [], 'google');
+
+    // SET UP GA and 204
+    window._gaq.push(['_setAccount', 'UA-28377374-1']);
+    window._gaq.push(['_setDomainName', 'coursera.org']);
+    window._gaq.push(['_setAllowLinker', true]);  
+    window._gaq.push(['_trackPageview']);
+    
+    // configure 204 with the following settings
+    window._204.push(["client", "spark"]);
+    window._204.push(["user", 4658484]);
+    window._204.push(["domain", "." + parts.join(".")]);
+
+    // set off the first event
+    window._204.push({key:"pageview", val:{}});
+
+    // override our multitracker queues with the ga queue when it is ready
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    
+      ga.onload = ga.onreadystatechange = function() {
+          ga.onreadystatechange = ga.onload = null;
+          window.multitracker.get('ga').queue = window._gaq;
+      };
+    })();
+
+    // override our multitracker queues with the 204 queue when it is ready
+    (function() {
+      var a = document.createElement('script'); a.type = 'text/javascript'; a.async = true;
+      a.src = 'https://eventing.coursera.org/204.min.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(a, s);
+      a.onload = a.onreadystatechange = function() {
+          a.onreadystatechange = a.onload = null;
+          window.multitracker.get('204').queue = window._204;
+      };
+    })();
+</script>
+
+<script>
+  // Set up shared AB testing object
+  (function() {
+    window.ab = {};
+
+    // we want to share the 204 session cookie with the AB session cookie...
+    var sessionId = AB.makeSession("__204u", {expires:365, domain:"." + location.host});
+
+    window.ab.user = window.AB(4658484, "user", {debug:true, tracker:window.multitracker, logger:window.logger});
+    window.ab.session = window.AB(sessionId, "session", {debug:true, tracker:window.multitracker, logger:window.logger});
+
+    if(window.CourseraABExperiments.user) {
+        window.ab.user.addExperiments(window.CourseraABExperiments.user);
+        window.ab.user.runExperimentsOn("body");
+    }
+
+    if(window.CourseraABExperiments.session) {
+        window.ab.session.addExperiments(window.CourseraABExperiments.session);
+        window.ab.session.runExperimentsOn("body");
+    }
+  })();
+</script>
+
+
+    <script>
+      // Set up help widget
+      (function() {
+        $("[data-helpwidget]").each(function() {
+            window.HelpWidget(this, {tracker: window.multitracker});
+        });
+       })();
+
+        $("[data-readme]").each(function() {
+            window.ReadMe(this);
+        });
+    </script>
+
+    <script src="nodescala_files/modal_focus.js" type="text/javascript"></script>
+    <script src="nodescala_files/get_query_parameters.js" type="text/javascript"></script>
+    <script src="nodescala_files/signature_track.js" type="text/javascript"></script>
+    <script src="nodescala_files/signatureTrackLastChanceModal.js" type="text/javascript"></script>
+    <script src="nodescala_files/signatureTrackLastChanceModal2.js" type="text/javascript"></script>
+    <script src="nodescala_files/item_list.js" type="text/javascript"></script>
+    <script src="nodescala_files/navbar.js" type="text/javascript"></script>
+
+    
+    <script>
+     // Set up help widget
+      (function() {
+        $("[data-helpwidget]").each(function() {
+            window.HelpWidget(this, {tracker: window.multitracker});
+        });
+       })();
+    </script>
+
+        <script>
+    (function() {
+        $("<style type='text/css'> .coursera-reporter-link { display:inline-block;} </style>").appendTo("head");
+    })();
+    </script>
+    
+    <script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  
+  styleSheets: [],
+  styles: {},
+
+  jax: ["input/TeX"],
+  
+  extensions: ["tex2jax.js"],
+
+  preJax: null,
+  postJax: null,
+
+  preRemoveClass: "MathJax_Preview",
+
+  showProcessingMessages: true,
+
+  messageStyle: "none",
+  
+  displayAlign: "center",
+  displayIndent: "0em",
+  
+  delayStartupUntil: "none",
+
+  skipStartupTypeset: false,
+  
+  elements: [],
+  
+  tex2jax: {
+	    inlineMath: [
+	                 ['$$','$$'],      // uncomment this for standard TeX math delimiters
+	                 ['\\(','\\)']
+	                 ],
+
+	                 displayMath: [
+	                 ['\\[','\\]']
+	                 ],
+
+    skipTags: ["script","noscript","style","textarea","pre","code"],
+    ignoreClass: "tex2jax_ignore",
+    processClass: "tex2jax_process",
+    processEscapes: false,
+    processEnvironments: true,
+    preview: "TeX"
+    
+  },
+  
+  mml2jax: {
+    preview: "alttext"
+    
+  },
+  
+  jsMath2jax: {
+    preview: "TeX"
+    
+  },
+
+  TeX: {
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    Macros: {},
+
+    extensions: ["AMSmath.js", "AMSsymbols.js"]
+    
+  },
+
+  //============================================================================
+  //
+  //  These parameters control the MathML inupt jax.
+  //
+  MathML: {
+    //
+    //  This specifies whether to use TeX spacing or MathML spacing when the
+    //  HTML-CSS output jax is used.
+    //
+    useMathMLspacing: false
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the HTML-CSS output jax.
+  //
+  "HTML-CSS": {
+    
+    scale: 100,
+    
+    availableFonts: ["STIX","TeX"],
+    
+    preferredFont: "TeX",
+    
+    webFont: "TeX",
+    
+    imageFont: "TeX",
+    
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif",
+      
+    showMathMenu: true,
+
+    styles: {},
+    
+    tooltip: {
+      delayPost: 600,          // milliseconds delay before tooltip is posted after mouseover
+      delayClear: 600,         // milliseconds delay before tooltip is cleared after mouseout
+      offsetX: 10, offsetY: 5  // pixels to offset tooltip from mouse position
+    }
+  },
+  
+  //============================================================================
+  //
+  //  These parameters control the NativeMML output jax.
+  //
+  NativeMML: {
+
+    scale: 100,
+
+    showMathMenu: true,
+    showMathMenuMSIE: true,
+
+    styles: {}
+  },
+  
+  MathMenu: {
+    delay: 400,
+    
+    helpURL: "http://www.mathjax.org/help/user/",
+
+    showRenderer: true,
+    showFontMenu: false,
+    showContext:  false,
+
+    windowSettings: {
+      status: "no", toolbar: "no", locationbar: "no", menubar: "no",
+      directories: "no", personalbar: "no", resizable: "yes", scrollbars: "yes",
+      width: 100, height: 50
+    },
+    
+    styles: {}
+    
+  },
+
+  MMLorHTML: {
+    prefer: {
+      MSIE:    "MML",
+      Firefox: "MML",
+      Opera:   "HTML",
+      other:   "HTML"
+    }
+  }
+});
+</script>
+<script type="text/javascript">
+(function () {
+
+  function loadMathJax() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://duqnjvq4jwr55.cloudfront.net/2.1/MathJax.js";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  }
+
+  window.loadOrRefreshMathJax = function(domId) {
+    if (window.MathJax) {
+      if (domId) {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, domId]);
+      } else {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+      }
+    } else {
+      loadMathJax();
+    }
+  }
+})();
+</script>
+    <script type="text/javascript">
+        var site_base_url = "https:\/\/www.coursera.org\/";
+        var site_static_asset_url = "https:\/\/dt5zaw6a98blc.cloudfront.net\/site-static\/";
+        var spark_class_short_name = "reactive";
+        var spark_class_id = 971465;
+        var spark_class_url = "\/reactive-001";
+        var spark_signature_url = "https:\/\/class.coursera.org\/reactive-001\/signature\/";
+
+        var course_strings_name = "Principles of Reactive Programming";
+        var student_full_name = "Stefano Sgorlon";
+    </script>
+
+    
+<script type="text/javascript">$(function() { loadOrRefreshMathJax();})</script>
+
+
+
+
+</body></html>

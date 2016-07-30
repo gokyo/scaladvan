@@ -1,0 +1,126 @@
+package suggestions
+package gui
+
+import scala.language.reflectiveCalls
+import scala.collection.mutable.ListBuffer
+import scala.collection.JavaConverters._
+import scala.concurrent._
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.util.{ Try, Success, Failure }
+import scala.swing.Reactions.Reaction
+import scala.swing.event.Event
+import rx.lang.scala.{ Observer, Observable }
+import rx.lang.scala.subjects.{ AsyncSubject, ReplaySubject, PublishSubject }
+import rx.lang.scala.subscriptions.{ Subscription, BooleanSubscription }
+import rx.lang.scala.subscriptions.{ CompositeSubscription, MultipleAssignmentSubscription }
+import scala.swing.event.EditDone
+
+/**
+ * Basic facilities for dealing with Swing-like components.
+ * Instead of committing to a particular widget implementation
+ * functionality has been factored out here to deal only with
+ * abstract types like `ValueChanged` or `TextField`.
+ * Extractors for abstract events like `ValueChanged` have also
+ * been factored out into corresponding abstract `val`s.
+ */
+trait SwingApi {
+
+  type ValueChanged <: Event
+
+  val ValueChanged: {
+    def unapply(x: Event): Option[TextField]
+  }
+
+  type ButtonClicked <: Event
+
+  val ButtonClicked: {
+    def unapply(x: Event): Option[Button]
+  }
+
+  type TextField <: {
+    def text: String
+    def subscribe(r: Reaction): Unit
+    def unsubscribe(r: Reaction): Unit
+  }
+
+  type Button <: {
+    def subscribe(r: Reaction): Unit
+    def unsubscribe(r: Reaction): Unit
+  }
+
+  /**
+   * The last version of Rx is 0.15.1, but to solve this assignment we have to use the previous
+   * version (0.15.0), which contains a bug: it takes an input parameter in the constructor of
+   * <code>rx.lang.scala.subjects.PublishSubject</code>.
+   * That parameter is not needed (and it is removed from the version 0.15.1).
+   * In order to create a <code>PublishSubject</code>, you can pass any dummy parameter in
+   * its constructor.
+   */
+  val DUMMY_STRING: String = null.asInstanceOf[String]
+  val DUMMY_BUTTON: Button = null.asInstanceOf[Button]
+
+  // Regarding the implementation of the 2 Observables below:
+  // ----------------------------------------------------------
+  // Subjects are for Observables the same as Promises are for Futures.
+  // When creating Futures, we used Promises in order to simplify their implementation.
+  // Here we follow the same idea: our implementation of Observables uses Subjects.
+
+  implicit class TextFieldOps(field: TextField) {
+
+    /**
+     * Returns a stream of text field values entered in the given text field.
+     *
+     * @param field the text field
+     * @return an observable with a stream of text field updates
+     */
+    def textValues: Observable[String] = {
+
+      // I create the Observable using a PublishSubject
+
+      val publishSubject = PublishSubject[String](DUMMY_STRING)
+
+      field subscribe {
+        event =>
+          event match {
+            case ValueChanged(ev) => publishSubject.onNext(ev.text)
+            case _ =>
+          }
+      }
+
+      publishSubject
+    }
+
+  }
+
+  implicit class ButtonOps(button: Button) {
+
+    /**
+     * Returns a stream of button clicks.
+     *
+     * @param field the button
+     * @return an observable with a stream of buttons that have been clicked
+     */
+    def clicks: Observable[Button] = {
+
+      // here I create the Observable without Subjects
+
+      Observable(
+        (observer: Observer[Button]) => {
+
+          val buttonReaction = Reaction {
+            case ButtonClicked(b) => observer onNext b
+            case _ =>
+          }
+
+          button subscribe buttonReaction
+
+          Subscription {
+            button unsubscribe buttonReaction
+            observer onCompleted
+          }
+        })
+    }
+
+  }
+
+}
